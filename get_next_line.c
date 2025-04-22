@@ -6,7 +6,7 @@
 /*   By: arivas-q <arivas-q@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:07:52 by arivas-q          #+#    #+#             */
-/*   Updated: 2025/04/21 17:56:45 by arivas-q         ###   ########.fr       */
+/*   Updated: 2025/04/23 00:40:18 by arivas-q         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ char	*extract_line(char	*stash)
 	int		i;
 	char	*line;
 	
+	if (!stash || stash[0] == '\0')
+		return (NULL);
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[i] == '\n')
 		i++;
 	line = malloc(i + 1);
 	if (!line)

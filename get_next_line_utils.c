@@ -6,7 +6,7 @@
 /*   By: arivas-q <arivas-q@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:08:47 by arivas-q          #+#    #+#             */
-/*   Updated: 2025/04/21 18:26:50 by arivas-q         ###   ########.fr       */
+/*   Updated: 2025/04/23 01:01:23 by arivas-q         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,34 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
+char	*ft_strdup(const char *s)
+
+{
+	size_t	len;
+	char	*dup;
+
+	len = ft_strlen(s);
+	dup = malloc(len + 1);
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, len + 1);
+	return (dup);
+}
+
 char	*safe_strjoin(char *s1, char *s2)
 {
 	char	*result;
 
-	result = ft_strjoin(s1, s2);
+	if (!s1)
+		result = ft_strdup(s2);
+	else
+		result = ft_strjoin(s1, s2);
 	if (!result)
 	{
 		free(s1);
 		return (NULL);
 	}
+	free(s1);
 	return (result);
 }
 
