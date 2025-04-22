@@ -6,7 +6,7 @@
 /*   By: arivas-q <arivas-q@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:08:47 by arivas-q          #+#    #+#             */
-/*   Updated: 2025/04/23 01:01:23 by arivas-q         ###   ########.fr       */
+/*   Updated: 2025/04/22 23:16:31 by arivas-q         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
-	
+
 	i = 0;
 	if (!str)
 		return (0);
@@ -27,8 +27,8 @@ size_t	ft_strlen(const char *str)
 char	*ft_strchr(char *s, int c)
 {
 	int	i;
+
 	i = 0;
-	
 	if (!s)
 		return (NULL);
 	while (s[i] != '\0')
@@ -42,7 +42,7 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *s)
 
 {
 	size_t	len;
@@ -54,23 +54,6 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	ft_memcpy(dup, s, len + 1);
 	return (dup);
-}
-
-char	*safe_strjoin(char *s1, char *s2)
-{
-	char	*result;
-
-	if (!s1)
-		result = ft_strdup(s2);
-	else
-		result = ft_strjoin(s1, s2);
-	if (!result)
-	{
-		free(s1);
-		return (NULL);
-	}
-	free(s1);
-	return (result);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -99,7 +82,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
