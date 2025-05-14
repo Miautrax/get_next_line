@@ -6,7 +6,7 @@
 /*   By: arivas-q <arivas-q@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:07:52 by arivas-q          #+#    #+#             */
-/*   Updated: 2025/04/22 23:16:39 by arivas-q         ###   ########.fr       */
+/*   Updated: 2025/05/14 19:21:06 by arivas-q         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ char	*clean_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	len = ft_strlen(newline_ptr + 1);
+	newline_ptr++;
+	len = ft_strlen(newline_ptr);
 	if (len == 0)
 	{
 		free(stash);
@@ -95,7 +96,7 @@ char	*clean_stash(char *stash)
 	new_stash = malloc(len + 1);
 	if (!new_stash)
 		return (NULL);
-	ft_memcpy(new_stash, newline_ptr + 1, len);
+	ft_memcpy(new_stash, newline_ptr, len);
 	new_stash[len] = '\0';
 	free(stash);
 	return (new_stash);
@@ -119,3 +120,25 @@ char	*get_next_line(int fd)
 	stash = clean_stash(stash);
 	return (line);
 }
+
+/*
+int main(void)
+{
+    int fd = open("test.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Error al abrir el archivo");
+        return (1);
+    }
+
+    char *line;
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("%s", line);
+        free(line);
+    }
+
+    close(fd);
+    return (0);
+}
+*/

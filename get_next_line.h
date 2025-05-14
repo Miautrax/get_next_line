@@ -6,17 +6,18 @@
 /*   By: arivas-q <arivas-q@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:08:44 by arivas-q          #+#    #+#             */
-/*   Updated: 2025/04/22 23:17:47 by arivas-q         ###   ########.fr       */
+/*   Updated: 2025/05/14 17:46:59 by arivas-q         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <sys/types.h>
+# include <fcntl.h>		//open//
+# include <unistd.h>	//read, close//
+# include <stdlib.h>	//malloc, free//
+# include <stddef.h>	//NULL, size_t//
+# include <stdio.h>		//prinf, perror//
+# include <sys/types.h>	//ssize_t//
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
