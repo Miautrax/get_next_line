@@ -6,7 +6,7 @@
 /*   By: arivas-q <arivas-q@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:08:44 by arivas-q          #+#    #+#             */
-/*   Updated: 2025/05/14 17:46:59 by arivas-q         ###   ########.fr       */
+/*   Updated: 2025/07/16 08:07:42 by arivas-q         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 #  define BUFFER_SIZE 1024
 # endif
 
-size_t	ft_strlen(const char *str);
-char	*ft_strchr(char *s, int c);
+size_t	gnl_strlen(const char *str);
+char	*gnl_strchr(char *s, int c);
 char	*safe_strjoin(char *s1, char *s2);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_memcpy(void *dest, void *src, size_t n);
+char	*gnl_strjoin(char const *s1, char const *s2);
+void	*gnl_memcpy(void *dest, void *src, size_t n);
 char	*read_and_store(int fd, char *stash);
 char	*extract_line(char	*stash);
 char	*clean_stash(char *stash);
 char	*get_next_line(int fd);
-char	*ft_strdup(char *s);
+char	*gnl_strdup(char *s);
 
 #endif

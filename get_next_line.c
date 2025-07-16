@@ -6,7 +6,7 @@
 /*   By: arivas-q <arivas-q@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:07:52 by arivas-q          #+#    #+#             */
-/*   Updated: 2025/05/14 19:21:06 by arivas-q         ###   ########.fr       */
+/*   Updated: 2025/07/16 08:07:04 by arivas-q         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*safe_strjoin(char *s1, char *s2)
 	char	*result;
 
 	if (!s1)
-		result = ft_strdup(s2);
+		result = gnl_strdup(s2);
 	else
-		result = ft_strjoin(s1, s2);
+		result = gnl_strjoin(s1, s2);
 	if (!result)
 	{
 		free(s1);
@@ -38,7 +38,7 @@ char	*read_and_store(int fd, char *stash)
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
-	while (!ft_strchr(stash, '\n') && bytes_read > 0)
+	while (!gnl_strchr(stash, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -69,7 +69,7 @@ char	*extract_line(char	*stash)
 	line = malloc(i + 1);
 	if (!line)
 		return (NULL);
-	ft_memcpy(line, stash, i);
+	gnl_memcpy(line, stash, i);
 	line[i] = '\0';
 	return (line);
 }
@@ -80,14 +80,14 @@ char	*clean_stash(char *stash)
 	size_t	len;
 	char	*newline_ptr;
 
-	newline_ptr = ft_strchr(stash, '\n');
+	newline_ptr = gnl_strchr(stash, '\n');
 	if (!newline_ptr)
 	{
 		free(stash);
 		return (NULL);
 	}
 	newline_ptr++;
-	len = ft_strlen(newline_ptr);
+	len = gnl_strlen(newline_ptr);
 	if (len == 0)
 	{
 		free(stash);
@@ -96,7 +96,7 @@ char	*clean_stash(char *stash)
 	new_stash = malloc(len + 1);
 	if (!new_stash)
 		return (NULL);
-	ft_memcpy(new_stash, newline_ptr, len);
+	gnl_memcpy(new_stash, newline_ptr, len);
 	new_stash[len] = '\0';
 	free(stash);
 	return (new_stash);
